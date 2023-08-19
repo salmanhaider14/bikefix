@@ -32,7 +32,7 @@ const login = () => {
     API.post("auth/login", formData, Token)
       .then((res) => {
         console.log("Login=res>>", res.data);
-        const expires = new Date(Date.now() + 60 * 60 * 1000);
+        const expires = new Date(Date.now() + 60 * 60 * 60 * 1000);
         const { id, phone, email, name, role_id } = res.data?.user;
         const user = { id, phone, email, name, type: role_id };
         const token = res.data?.access_token;

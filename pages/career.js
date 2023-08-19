@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
 import Link from "next/link";
 import MainLayout from "../layouts/MainLayout";
+import { useSelector } from "react-redux";
+import API from "../helper/request";
 
 const Career = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const profile = useSelector((state) => state.profile);
+  const [careers, setCareers] = useState([]);
+  const getAll = () => {
+    API.get("career", profile.token).then((res) => {
+      console.log(res.data);
+      setCareers(res.data.careers);
+    });
+  };
+  const filteredCareers = careers.filter((item) =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  useEffect(() => getAll(), []);
   const jobPosts = [
     {
       title: "Account Manager",
@@ -48,6 +64,7 @@ const Career = () => {
             We are hiring. Join us and help us reinvent the-two-wheeler service
             and maintenance.
           </p>
+
           <div className="relative">
             <input
               id="search"
@@ -55,6 +72,8 @@ const Career = () => {
               placeholder="Search"
               className="pl-8 pr-16 py-5 w-full my-2 formGlassInput"
               type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <span className="absolute top-1/2 -translate-y-1/2 right-8">
               <BiSearchAlt2 className="text-2xl" />
@@ -74,40 +93,47 @@ const Career = () => {
       </div>
       {/* job card */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 w-full px-4 xl:py-8 text-black">
-        {jobPosts.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className="bg-gradient-to-b from-white/20 to-white/0 bg-white/20 rounded-3xl shadow-md border overflow-hidden"
-            >
-              <Image
+      {profile.token ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 w-full px-4 xl:py-8 text-black">
+          {filteredCareers.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="bg-gradient-to-b from-white/20 to-white/0 bg-white/20 rounded-3xl shadow-md border overflow-hidden"
+              >
+                {/* <Image
                 className="w-full"
                 src={`/image/job/${item.img}`}
                 height={307}
                 width={552}
                 alt={`${item.title} Job in ${item.location} - BikefixUp`}
-              />
-              <div className="px-5 py-5">
-                <h2 className="text-xl font-semibold">{item.title}</h2>
-                <p className="text-gray-500 flex items-center">
-                  <MdLocationOn className="mr-2" />
-                  {item.location}
-                </p>
-                <p className="mt-4 text-justify">{item.description}</p>
-                <Link
+              /> */}
+                <div className="px-5 py-5">
+                  <h2 className="text-xl font-semibold">{item.title}</h2>
+                  <h3 className="text-xl text-gray-500 font-semibold py-3">
+                    {item.position}
+                  </h3>
+                  <p className="text-gray-500 flex items-center">
+                    <MdLocationOn className="mr-2" />
+                    {item.location}
+                  </p>
+                  <p className="mt-4 text-justify">{item.details}</p>
+                  {/* <Link
                   href={"/Home"}
                   className="my-2 text-beta-900 font-semibold text-center w-full block"
                 >
                   <span className="border-b-2 border-beta-900">
                     More Details
                   </span>
-                </Link>
+                </Link> */}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        <h2>Ops! Login to see the job postings</h2>
+      )}
 
       <div className="w-full xl:py-8 px-5 text-black my-10">
         <h2 className="md:text-4xl text-2xl text-center font-semibold">

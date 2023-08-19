@@ -8,12 +8,23 @@ import { RxCrossCircled } from "react-icons/rx";
 import Image from "next/image";
 import API from "../helper/request";
 import SEO from "../components/SEO";
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
 export default () => {
   const [isPassRevealed, setIsPassRevealed] = useState(false);
   const [allStates, setAllStates] = useState([]);
   const [allCities, setAllCities] = useState([]);
   const [selectedState, setSelectedState] = useState(null);
+  const router = useRouter();
+  const successAlert = () => {
+    Swal.fire({
+      icon: "success",
+      title: "User registered successfully!!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   useEffect(() => {
     getAllStates();
   }, []);
@@ -34,6 +45,8 @@ export default () => {
     API.post("auth/register", formData)
       .then((res) => {
         console.log("Registration=res>>", res);
+        successAlert();
+        router.push("/login");
       })
       .catch((err) => {
         console.log("err>>", err.response?.data?.errors);
@@ -88,7 +101,7 @@ export default () => {
                     Create an account and access services easily
                   </p>
                   <form
-                    onSubmit={e => handleRegistration(e)}
+                    onSubmit={(e) => handleRegistration(e)}
                     className="relative z-10 flex flex-col justify-center w-full items-center"
                   >
                     <input

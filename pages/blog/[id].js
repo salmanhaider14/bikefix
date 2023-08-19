@@ -1,33 +1,14 @@
 import { useRouter } from "next/router";
 import API from "../../helper/request";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { getCookie } from "cookies-next";
 
-const BlogDisplay = () => {
+const BlogDisplay = ({ blogData }) => {
   const router = useRouter();
-  const { id } = router.query;
-  const profile = useSelector((state) => state.profile);
-  const token = profile.token;
-  const [blogData, setBlogData] = useState(null);
-
-  useEffect(() => {
-    const fetchBlogData = async () => {
-      try {
-        const response = await API.get(`blog/${id}`, profile.token);
-        setBlogData(response.data.blog);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchBlogData();
-  }, [id]);
+  const token = useSelector((state) => state.profile.token);
 
   if (!blogData) {
     return <div>Loading...</div>;
-  }
-  if (!token) {
-    router.push("/login");
   }
 
   const goBackToBlog = () => {
@@ -58,5 +39,23 @@ const BlogDisplay = () => {
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  const { id } = context.query;
+  const token = context.req.cookies.token;
+
+  try {
+    const response = await API.get(`blog/${id}`, token);
+    const blogData = response.data.blog;
+    return {
+      props: { blogData },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {},
+    };
+  }
+}
 
 export default BlogDisplay;

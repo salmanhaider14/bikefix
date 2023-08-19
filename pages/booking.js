@@ -8,6 +8,8 @@ import { RxCrossCircled } from "react-icons/rx";
 import API from "../helper/request";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import { useRouter } from "next/router";
+import { redirect } from "next/dist/server/api-utils";
 
 const Booking = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,7 +20,7 @@ const Booking = () => {
   const [selectedModel, setSelectedModel] = useState(null);
   const [selectedPower, setSelectedPower] = useState(null);
   const profile = useSelector((state) => state.profile);
-
+  const router = useRouter();
   const [allBrands, setAllBrands] = useState([]);
   const [allModels, setAllModels] = useState([]);
   const [allPowers, setAllPowers] = useState([]);
@@ -113,6 +115,7 @@ const Booking = () => {
     });
     getAllVehicles();
   };
+
   return (
     <>
       <SEO />

@@ -9,7 +9,9 @@ import { RxCrossCircled } from "react-icons/rx";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 const ProfilePage = () => {
+  const router = useRouter();
   const [showMobileSide, setShowMobileSide] = useState(false);
   const [selectedOption, setSelectedOption] = useState();
   function handleDropdownChange(event) {
@@ -43,6 +45,11 @@ const ProfilePage = () => {
       // Optionally, you can show a success message or perform other actions here
     } catch (error) {
       console.error("Error submitting form", error);
+      if (error.response && error.response.status === 401) {
+        // If 401 Unauthorized error, redirect to the login page
+        alert("Ops! Your sessions is expired. Plz sign in to continue!");
+        router.push("/login");
+      }
       // Optionally, you can show an error message or perform other error-related actions here
     }
   };

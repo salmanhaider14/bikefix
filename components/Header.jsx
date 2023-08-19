@@ -9,6 +9,7 @@ import Image from "next/image";
 import HeaderTop from "./HeaderTop";
 
 const Header = () => {
+  const profile = useSelector((state) => state.profile);
   const AuthProfile = useSelector(GetProfile).profile;
   const dispatch = useDispatch();
 
@@ -50,8 +51,9 @@ const Header = () => {
         <Navbar.Link
           as={Link}
           href="/membership"
-          className={`nav-pc ${router.pathname === "/membership" ? "active" : ""
-            }`}
+          className={`nav-pc ${
+            router.pathname === "/membership" ? "active" : ""
+          }`}
         >
           Membership
         </Navbar.Link>
@@ -65,7 +67,7 @@ const Header = () => {
         </Navbar.Link>
         <Navbar.Link
           as={Link}
-          href="/career"
+          href={profile.token ? "/career" : "/login"}
           className={`nav-pc ${router.pathname === "/career" ? "active" : ""}`}
         >
           Career

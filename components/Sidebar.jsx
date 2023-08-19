@@ -14,7 +14,7 @@ import {
 import { CgProfile } from "react-icons/cg";
 import { FaRegComments } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LogoutProfile } from "../redux/reducers/profile";
 import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/router";
@@ -32,6 +32,7 @@ const menuItems = [
 ];
 
 function SideNavbar({ setShowMobileSide, showMobileSide }) {
+  const profile = useSelector((state) => state.profile);
   const router = useRouter();
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -67,8 +68,17 @@ function SideNavbar({ setShowMobileSide, showMobileSide }) {
         </div>
         <div className="my-4 pb-6 overflow-y-scroll overflow-x-hidden h-[calc(100vh-155px)] hide-scroll">
           {menuItems.map((menuItem) => (
-            <Link key={menuItem.id} href={menuItem.link} passHref>
-              <span className="flex mb-4 justify-start items-center gap-4 pl-5 hover:bg-main p-2 rounded-md group cursor-pointer hover:shadow-lg hover:border hover:border-white m-auto">
+            // Conditionally render links based on profile.token
+            <Link
+              key={menuItem.id}
+              href={profile.token ? menuItem.link : "/login"}
+              passHref
+            >
+              <span
+                className={`flex mb-4 justify-start items-center gap-4 pl-5 hover:bg-main p-2 rounded-md group cursor-pointer hover:shadow-lg hover:border hover:border-white m-auto ${
+                  !profile.token ? "pointer-events-none opacity-50" : ""
+                }`}
+              >
                 {React.createElement(menuItem.icon, {
                   className: "text-2xl flex-shrink-0 text-gray-600",
                 })}
