@@ -1,0 +1,612 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html {
+  font-family: "Poppins", sans-serif;
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: #fff;
+}
+
+/* ==================== POPUP STYLES =============================  */
+.LoginPopup-content {
+  width: 95%;
+  padding: 30px 30px;
+  height: 95vh;
+  overflow: hidden;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.newMorf {
+  padding: 5px 20px;
+  left: 1189px;
+  top: 78px;
+  font-weight: 700;
+  background: #ededed;
+  box-shadow: -2px -2px 8px rgba(255, 255, 255, 0.75),
+    -2px -2px 8px rgba(255, 255, 255, 0.75),
+    8px 8px 12px rgba(127, 127, 127, 0.25),
+    4px 4px 4px rgba(127, 127, 127, 0.75);
+  border-radius: 10px;
+}
+
+.newMorfPurple {
+  background: #990195;
+  box-shadow: -6px -7px 7px rgba(231, 24, 224, 0.25), -2px -2px 2px #aa00a6,
+    1px 1px 2px rgba(0, 0, 0, 0.25), 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset -4px -4px 16px rgba(121, 2, 118, 0.5),
+    inset 4px 3px 16px rgba(189, 0, 183, 0.25);
+  border-radius: 10px;
+}
+
+.serviceCard {
+  background: radial-gradient(
+      100% 100% at 0% 9.33%,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.18) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.servicePageNav {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  width: 100%;
+  border-radius: 25px;
+}
+.servCard {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 30px;
+}
+.servBuyBtn {
+  background: linear-gradient(274.26deg, #ed1c24 -16.87%, #bd0000 95.31%);
+  box-shadow: -2px -2px 4px rgba(243, 73, 73, 0.5), 2px 2px 4px #7e1818,
+    inset -4px -4px 4px rgba(0, 0, 0, 0.25),
+    inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.servFooter {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 0px 0px 25px 25px;
+}
+.serviceCardActive {
+  background: linear-gradient(0deg, #aa00a6, #aa00a6),
+    radial-gradient(
+        100% 100% at 0% 9.33%,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.18) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: #fff !important;
+}
+.glassText {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 18px;
+  /* identical to box height, or 45% */
+  height: 50px;
+  text-align: center;
+
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+  /* text-shadow: 0px 4px 4px rgba(134, 134, 134, 0.25),
+    0px 4px 4px rgba(151, 151, 151, 0.25), 0px 4px 4px rgba(107, 107, 107, 0.25),
+    0px 4px 4px rgba(134, 134, 134, 0.25),
+    4px 4px 16px rgba(114, 114, 114, 0.08); */
+  backdrop-filter: blur(2px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+/* ===========================GRADIENT ============================  */
+
+/* ==================== LAYOUT ==========================  */
+
+/* =========================== HERO ==============================  */
+.heroFormGlassDiv {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-radius: 20px;
+}
+
+.formGlassInput {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.5),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 20px;
+}
+
+.mobileSectionGlass {
+  background: linear-gradient(
+      311.99deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 56.66%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border: 3px solid;
+  border-image-source: linear-gradient(
+    171.23deg,
+    #ffffff 1.93%,
+    rgba(255, 255, 255, 0) 104.85%
+  );
+  border-radius: 20px;
+}
+
+.serviceMobileSecGleass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 30px;
+}
+
+.mobileCase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  border-radius: 0px 0px 10px 10px;
+  height: 15px;
+  background-color: black;
+  z-index: 100;
+}
+
+.appServiceSecLeftCard {
+  border-radius: 30px;
+  border: 2px solid transparent;
+  border-image-source: linear-gradient(120deg, #ffffff, #ffffff, #ffffff00);
+  border-image-slice: 1;
+}
+
+.benifitSectionCardGlass {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+
+.testimonialGlass {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  opacity: 0.8;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.userNav {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.735);
+}
+
+.userNavLink {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+/* =================================== ABOUT ====================================  */
+.aboutHeroGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid rgba(255, 255, 255, 0.867);
+  border-radius: 30px;
+}
+
+.aboutGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid rgba(255, 255, 255, 0.867);
+  border-radius: 30px;
+}
+
+.aboutOneStepGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid rgba(255, 255, 255, 0.867);
+  border-radius: 0px;
+}
+
+.aboutOurTeamGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid #dfdada;
+  border-radius: 0px 30px 30px 0px;
+}
+
+/* ===================================== MEMBERSHIP ============================== */
+.heroGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.291) 0%,
+      rgba(255, 255, 255, 0.157) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(20px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid #dfdada;
+  border-radius: 30px;
+}
+
+.palnGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid #dfdada;
+  border-radius: 30px;
+}
+
+.planCardHead {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 30px;
+}
+
+/* ==================================== BLOG ===================================  */
+.blogPostCardGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+/* ================================ CEREER ===================================  */
+.jobCardGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+}
+
+/* ================================ PARTNER ================================  */
+.partnerMarketPotential {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid #fff;
+}
+
+.partnerAfterSaleSupGlassCard {
+  background: linear-gradient(
+    118.39deg,
+    rgba(255, 255, 255, 0.27) 1.28%,
+    rgba(10, 9, 35, 0) 106.47%
+  );
+
+  filter: drop-shadow(30px 10px 150px rgba(215, 215, 215, 0.5));
+  backdrop-filter: blur(50px);
+  border-radius: 30px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+
+/* ================================= Profile Dashboard ===========================  */
+.profileLayoutGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-radius: 30px;
+}
+
+.profileDashboardAsideGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 30px;
+}
+
+.profileDashboardContainerGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+/* =================================== LOGIN =================================  */
+.loginGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 10px;
+}
+
+.otp-popup-content {
+  text-align: center;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 10px;
+}
+
+.otp-container {
+  background-color: transparent !important;
+}
+
+.otp-container input {
+  margin: 0 10px;
+  background: transparent;
+  box-shadow: inset -4px -4px 5px rgba(255, 255, 255, 0.5),
+    inset 4px 4px 5px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 60px;
+  width: 40px !important;
+  text-align: center;
+  color: #000;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.otp-container input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 360px) {
+  /* place here CSS for when the screen is less than 1000px wide */
+  .otp-container input {
+    margin: 0 5px;
+    background: transparent;
+    box-shadow: inset -4px -4px 5px rgba(255, 255, 255, 0.5),
+      inset 4px 4px 5px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 5px;
+    height: 35px;
+    width: 35px !important;
+    text-align: center;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+/* ===================== ADMIN SIDEBAR CURVE DESIGN ======================= */
+.navCarvedShape:nth-child(1):before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 0px 15px 0px;
+  background-color: #000000;
+}
+.navInactive .navCarvedShape {
+  display: none;
+  z-index: 10;
+}
+.navInactive .navCarvedShape {
+  display: none;
+  z-index: 10;
+}
+.navActive .navCarvedShape:nth-child(1):before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 0px 15px 0px;
+  background-color: #0145fe;
+  z-index: 10;
+}
+.navActive .navCarvedShape:nth-child(2):before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 15px 0px 0px;
+  background-color: #0145fe;
+  z-index: 10;
+}
+
+.navUl::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #f5f5f5;
+  display: none;
+}
+
+.navUl::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 10px;
+}
+
+.navUl::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.tableRowAdmin:hover {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+/* ========================= ADMIN USER ======================= */
+.userEditPopup-content {
+  background: #fff;
+  box-shadow: 0 0 10px 2px #0144fe85;
+  width: 80%;
+  height: 600px;
+  border-radius: 10px;
+  border: 2px solid #0144fea6;
+  padding: 15px;
+}
